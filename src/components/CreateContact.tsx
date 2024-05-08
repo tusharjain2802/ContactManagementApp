@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import {changeCreateContactStatus } from "../redux/actions";
 import { AddNewContact } from "../lib/Queries";
 import { Spinner } from "flowbite-react";
+import toast, { Toaster } from 'react-hot-toast';
 const AddContact = () => {
   const [userFirstName, updateFirstName] = useState("");
   const [userLastName, updateLastName] = useState("");
@@ -42,7 +43,7 @@ const AddContact = () => {
       // dispatchFn(changeCreateContactStatus());
       AddContact(newContactData)
     } else {
-      alert("Please fill all the details !!");
+      toast.error("Please fill all details!!");
     }
   };
 
@@ -152,6 +153,7 @@ const AddContact = () => {
           </button>
         </div>
       </form>
+      <Toaster />
     </div>
   );
 };

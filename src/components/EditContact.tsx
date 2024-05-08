@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { EditContactQueryFunction } from '../lib/Queries'
 import { Spinner } from "flowbite-react";
+import toast, { Toaster } from 'react-hot-toast';
+
 const EditContact = () => {
 
   const completeListObj = useSelector(
@@ -28,7 +30,7 @@ const EditContact = () => {
       EditContact(newData)
     }
     else {
-      alert("Please fill all details!!")
+      toast.error("Please fill all details!!");
     }
   };
 
@@ -131,6 +133,7 @@ const EditContact = () => {
           </button>
         </div>
       </form>
+      <Toaster />
     </div>
   );
 };
